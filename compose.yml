@@ -1,0 +1,16 @@
+name: r4
+services:
+    fe:
+      build: .
+      ports:
+        - 7777:80
+      links:
+        - r1-json-server.fly.dev
+      depends_on:
+        - r1-json-server.fly.dev
+
+    json:
+      image: jeonseungmin/r1-json-server-alpine:latest
+      container_name: r1-json-server.fly.dev 
+      ports:
+        - 8888:80  
